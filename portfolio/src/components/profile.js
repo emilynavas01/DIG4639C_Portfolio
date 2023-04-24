@@ -1,63 +1,33 @@
+// This is the Profile component that displays user information and progress
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 const Profile = () => {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [workoutsCompleted, setWorkoutsCompleted] = useState(0);
-  const [weightLifted, setWeightLifted] = useState(0);
+  // Declare the state variable 'progress' using the 'useState' hook
+  const [progress, setProgress] = useState(0);
 
-  const handleSaveProfile = () => {
-    // handle save profile logic here
-  }
-
-  const handleWorkoutComplete = () => {
-    setWorkoutsCompleted(workoutsCompleted + 1);
-  }
-
-  const handleWeightLifted = (value) => {
-    setWeightLifted(value);
-  }
+  // Declare a function to update the 'progress' state
+  const handleUpdateProgress = () => {
+    // Increment the 'progress' state by 1
+    setProgress(progress + 1);
+  };
 
   return (
     <View>
-      <Text>Name:</Text>
-      <TextInput
-        value={name}
-        onChangeText={(value) => setName(value)}
-      />
-      <Text>Age:</Text>
-      <TextInput
-        value={age}
-        onChangeText={(value) => setAge(value)}
-      />
-      <Text>Height:</Text>
-      <TextInput
-        value={height}
-        onChangeText={(value) => setHeight(value)}
-      />
-      <Text>Weight:</Text>
-      <TextInput
-        value={weight}
-        onChangeText={(value) => setWeight(value)}
-      />
-      <TouchableOpacity onPress={handleSaveProfile}>
-        <Text>Save Profile</Text>
-      </TouchableOpacity>
-      <Text>Workouts Completed: {workoutsCompleted}</Text>
-      <TouchableOpacity onPress={handleWorkoutComplete}>
-        <Text>Complete Workout</Text>
-      </TouchableOpacity>
-      <Text>Weight Lifted: {weightLifted}</Text>
-      <TextInput
-        keyboardType="numeric"
-        value={weightLifted}
-        onChangeText={handleWeightLifted}
-      />
+      {/* Display user information */}
+      <Text>Name: John Doe</Text>
+      <Text>Age: 25</Text>
+      <Text>Height: 5'10"</Text>
+      <Text>Weight: 160 lbs</Text>
+
+      {/* Display user progress */}
+      <Text>Workouts completed: {progress}</Text>
+      <Text>Weight lifted: 1000 lbs</Text>
+
+      {/* Button to update progress */}
+      <Button title="Complete Workout" onPress={handleUpdateProgress} />
     </View>
   );
-}
+};
 
 export default Profile;

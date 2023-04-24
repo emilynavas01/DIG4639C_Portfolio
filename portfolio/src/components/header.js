@@ -1,3 +1,4 @@
+// This is the Header component that displays the app logo and navigation links
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
