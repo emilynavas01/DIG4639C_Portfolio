@@ -1,22 +1,32 @@
 // This is the Header component that displays the app logo and navigation links
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React from "react";
+import { StyleSheet, View, Image } from "react-native";
 
 const Header = ({ title, navigation }) => {
   return (
-    <View>
-      <Text>{title}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>Home</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Workouts')}>
-        <Text>Workouts</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-        <Text>Profile</Text>
-      </TouchableOpacity>
+    <View style={styles.header}>
+      <Image
+        source={require("../assets/logo.png")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    width: "100%",
+    height: 60,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f4511e",
+  },
+  logo: {
+    width: 50,
+    height: 50,
+  },
+});
 
 export default Header;
